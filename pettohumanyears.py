@@ -1,17 +1,23 @@
-pet_type= input("Enter your pet type:").lower()
-pet_age= int(input("Enter your pet's age: (whole numbers only)"))
-if pet_type=="dog":
-    if pet_age==1:
-        print ("Your ", pet_type, " is 15 years old in human years.")
-    elif pet_age==2:
-        print ("Your ", pet_type, "is 24 years old in human years.")
-    elif pet_age >2:
-        print("Your ", pet_type, "is ", 24+(pet_age*5), "years old in human years.")
-if pet_type=="cat":
-    if pet_age==1:
-        print ("Your ", pet_type, " is 15 years old in human years.")
-    elif pet_age==2:
-        print ("Your ", pet_type, "is 24 years old in human years.")
-    elif pet_age >2:
-        print("Your ", pet_type, "is ", 24+(pet_age*4), "years old in human years.")
+
+import math
+class age_calculator: 
+    def __init__ (self,pet,name):
+        self.pet=pet.lower()
+        self.name=name.title()
+
+    def calculate (self, pet_age):
+        if self.pet=="cat":
+            return round(15.5*(math.pow(pet_age,0.536)),1)
+        elif self.pet!="cat":
+            print("Please enter 'dog' or 'cat'.")
+    
+        if self.pet=="dog":
+            return round(12.3+(5.09*pet_age)+ (-0.07* math.pow(pet_age,2)))
         
+pet_name=input("Enter your pet's name:")
+pet_type = input("Enter your pet type:")
+pet_age= float(input("Enter your pet's age: (in years)"))
+pet_calculator=age_calculator(pet_type,pet_name)
+print("Your ",pet_calculator.pet, " named ", pet_calculator.name," is", pet_calculator.calculate(pet_age)," years old in human years.")
+if pet_calculator.calculate(pet_age)>60:
+    print("Wow, that's pretty old!")
