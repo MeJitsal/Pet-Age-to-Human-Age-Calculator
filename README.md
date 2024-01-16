@@ -1,5 +1,5 @@
 # Pet Age to Human Age Calculator
- Converts calendar years to age of your dog or cat 
+ Converts pet years to human years
 
 ## how to run 
 ```bash
